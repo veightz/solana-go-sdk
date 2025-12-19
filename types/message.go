@@ -76,7 +76,7 @@ func (m *Message) Serialize() ([]byte, error) {
 		if err != nil || versionNum > 255 {
 			return nil, fmt.Errorf("failed to parse message version")
 		}
-		if versionNum > 128 {
+		if versionNum > 127 {
 			return nil, fmt.Errorf("unexpected message version")
 		}
 		b = append([]byte{byte(versionNum + 128)}, b...)
